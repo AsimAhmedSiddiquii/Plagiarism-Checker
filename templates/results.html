@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+      <h4>Sentence-wise Results</h4>
+      {% for x in output%}
+      <ul class="list-group">
+          <li class="list-group-item"><h5><span class="badge badge-success">Percentage Match </span></h5><strong>{{ x[0] }}%</strong></li>
+          <a href="{{x[1]}}" class="list-group-item list-group-item-action"><h5><span class="badge badge-success">Match URL </span></h5><strong>{{x[1]}}</strong></a>
+          <li class="list-group-item"><h5><span class="badge badge-success">Exact Match </span></h5><strong>{{x[2]}}</strong></li>
+        </ul>
+        <br>
+        {% endfor %}
+    </div>
+
+    <div class="container">
+      <h4>Extra Word Count Statistics</h4>
+      <table>
+        <tr>
+          <th>Number of Words</th>
+          <td>{{ no_of_words }}</td>
+        </tr>
+        <tr>
+          <th>Number of Sentences</th>
+          <td>{{ sentences }} sentences</td>
+        </tr>
+        <tr>
+          <th>Average Word Length</th>
+          <td>{{ average }} characters</td>
+        </tr>
+        <tr>
+          <th>Average Sentence Length (word)</th>
+          <td>{{ avg_len }} words</td>
+        </tr>
+        <tr>
+          <th>Reading Time</th>
+          <td>{{ reading }} min</td>
+        </tr>
+        <tr>
+          <th>Speaking Time</th>
+          <td>{{ speaking }} min</td>
+        </tr>
+      </table>
+    </div>
+</div>
+{% endblock content %}
